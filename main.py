@@ -6,20 +6,10 @@ import time
 # TODO: Ryanify code
 # TODO: select button to include shift/ctrl/alt+hotkey combinations 
 
-# Delay Settings
-startCPS = 6
-CPS = 7
-startDelay = 1/startCPS
-goalDelay = 1/CPS
 
 
 # Hotkey Settings
 hotkey = KeyCode.from_char('r')
-
-# Default Values
-pause = True
-running = True
-startSwitch = True
 
 
 def on_press(key):
@@ -40,32 +30,31 @@ def on_press(key):
 def display_controls():
     print("-"*20)
     print("--Settings--")
-    print("CPS: ", CPS, "\nDelay: ", round(goalDelay, 4), "sec")
-    print("--Controls--")
-    print("Hotkey = R")
     print("-"*20)
 
 
 
 def main():
-    delay = startDelay
-    switch = True
-    startSwitch = True
-    delayRange = 0.5
-
+    running = True
 
     listener = Listener(on_press=on_press)
     listener.start()
     display_controls()
     
-
-    while running:        
-        print(pyautogui.position())
-        # pyautogui.click(pyautogui.position())
+    time.sleep(5) 
+    while running:    
+        # print(pyautogui.position())
+        time.sleep(1.5)
+        pyautogui.click(pyautogui.position(1739, 181))
+        time.sleep(0.5)
+        pyautogui.click(pyautogui.position(1739, 181))
         # pyautogui.PAUSE = delay
         
-        time.sleep(0.1)
-
+        time.sleep(1.5)
+        pyautogui.click(pyautogui.position(788, 193))
+        time.sleep(0.5)
+        pyautogui.click(pyautogui.position(788, 193))
+        
     listener.stop()
 
 
